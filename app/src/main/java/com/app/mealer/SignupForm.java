@@ -8,20 +8,35 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignupForm extends AppCompatActivity {
     private FirebaseAuth mauth;
-    private EditText email,password;
+    private EditText fullname,phonenumber,email,password;
+    private CheckBox isCook;
     private Button signup_btn;
     private TextView login_text;
+    private FirebaseFirestore fstore;
+
+    private String isuser;
+    private String iscook;
 
 
 
@@ -31,10 +46,14 @@ public class SignupForm extends AppCompatActivity {
         setContentView(R.layout.activity_signup_form);
 
         mauth=FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
         email=findViewById(R.id.signup_mail);
         password=findViewById(R.id.signup_password);
         signup_btn=findViewById(R.id.signup_btn);
         login_text=findViewById(R.id.login_text);
+        fullname=findViewById(R.id.signup_name);
+        phonenumber=findViewById(R.id.signup_phone);
+        isCook=findViewById(R.id.signup_checkBox);
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,30 +67,74 @@ public class SignupForm extends AppCompatActivity {
                 startActivity(new Intent(SignupForm.this, LoginForm.class));
             }
         });
+        isCook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isCook.isChecked()){
+                    iscook="1";
+                }
+
+            }
+        });
     }
 
     private void Register() {
+        Log.d("tiendep","hello");
         String user=email.getText().toString().trim();
         String pass=password.getText().toString().trim();
+        String name=fullname.getText().toString().trim();
+        String phone=phonenumber.getText().toString().trim();
+        try {
+            Integer a=Integer.parseInt(phone);
+        }catch(NumberFormatException e){
+            phonenumber.setError("Invalid phone number");
+        }
         if(user.isEmpty()){
             email.setError("Email can not be empty..");
         }
         if(pass.isEmpty()){
             password.setError("Password can not be empty");
         }
+        if(name.isEmpty()){
+            fullname.setError("Full name can not be empty");
+        }
+
         else{
             mauth.createUserWithEmailAndPassword(user,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+
+                        FirebaseUser currentuser=mauth.getCurrentUser();
+
                         Toast.makeText(SignupForm.this,"User signed up successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignupForm.this,WelcomeActivity.class));
+
+                        String userid=currentuser.getUid();
+                        DocumentReference df= fstore.collection("Users").document(userid);
+                        Map<String,Object> userInfo=new HashMap<>();
+                        userInfo.put("FullName",fullname.getText().toString());
+                        userInfo.put("UserEmail",email.getText().toString());
+                        userInfo.put("PhoneNumber",phonenumber.getText().toString());
+                        if(iscook=="1"){
+                            userInfo.put("isuser",null);
+                            userInfo.put("iscook","1");
+                        }
+                        else{
+                            userInfo.put("isuser","1");
+                            userInfo.put("iscook",null);
+                        }
+
+                        df.set(userInfo);
+                        startActivity(new Intent(getApplicationContext(),LoginForm.class));
+                        finish();
+
                     }
                     else{
                         Toast.makeText(SignupForm.this, "Sign up Failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }
-            });
+                }});
+
         }
     }
 }

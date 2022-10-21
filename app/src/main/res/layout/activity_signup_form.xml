@@ -19,10 +19,23 @@
         android:textStyle="bold"
         ></TextView>
     <EditText
-        android:id="@+id/signup_mail"
+        android:id="@+id/signup_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signup_text"
+        android:layout_marginTop="40dp"
+        android:hint="Enter full name"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        >
+    </EditText>
+    <EditText
+        android:id="@+id/signup_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_name"
         android:layout_marginTop="40dp"
         android:hint="Enter e-mail"
         android:padding="10dp"
@@ -32,10 +45,24 @@
         >
     </EditText>
     <EditText
-        android:id="@+id/signup_password"
+        android:id="@+id/signup_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signup_mail"
+        android:layout_marginTop="40dp"
+        android:hint="Enter phone number"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        >
+    </EditText>
+
+    <EditText
+        android:id="@+id/signup_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_phone"
         android:layout_marginTop="40dp"
         android:hint="Enter password"
         android:padding="10dp"
@@ -43,11 +70,19 @@
         android:textColorHint="@color/black"
         android:textSize="20sp"
         ></EditText>
+
+    <CheckBox
+        android:id="@+id/signup_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_password"
+        android:text="Sign up as a cook" />
+
     <Button
         android:id="@+id/signup_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signup_password"
+        android:layout_below="@id/signup_checkBox"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:backgroundTint="#F5636C"

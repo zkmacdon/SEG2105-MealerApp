@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D8D8D8"
-    tools:context=".WelcomeActivity">
+    tools:context=".CookWelcome">
     <TextView
         android:id="@+id/mealerwelcome"
         android:layout_width="wrap_content"
@@ -23,11 +23,11 @@
         android:id="@+id/usertype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Type: User"
+        android:text="User Type: Cook"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/mealerwelcome"
 
-         />
+        />
     <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"
