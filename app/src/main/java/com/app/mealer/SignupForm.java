@@ -65,7 +65,7 @@ public class SignupForm extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(SignupForm.this,"User signed up successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignupForm.this,MainActivity.class));
+                        startActivity(new Intent(SignupForm.this,WelcomeActivity.class));
                     }
                     else{
                         Toast.makeText(SignupForm.this, "Sign up Failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();

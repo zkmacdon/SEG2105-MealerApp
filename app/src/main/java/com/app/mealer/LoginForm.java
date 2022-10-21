@@ -59,7 +59,7 @@ public class LoginForm extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(LoginForm.this,"Logoin Successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginForm.this, MainActivity.class));
+                        startActivity(new Intent(LoginForm.this, WelcomeActivity.class));
                     }
                     else{
                         Toast.makeText(LoginForm.this,"Login Failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
