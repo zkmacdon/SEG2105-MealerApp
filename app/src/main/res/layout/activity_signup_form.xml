@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="Sign up "
         android:textColor="#A13D3D"
         android:textSize="36sp"
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signup_text"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:hint="Enter full name"
         android:padding="10dp"
         android:textColor="@color/black"
@@ -36,7 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signup_name"
-        android:layout_marginTop="40dp"
         android:hint="Enter e-mail"
         android:padding="10dp"
         android:textColor="@color/black"
@@ -49,7 +48,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signup_mail"
-        android:layout_marginTop="40dp"
         android:hint="Enter phone number"
         android:padding="10dp"
         android:textColor="@color/black"
@@ -63,19 +61,66 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signup_phone"
-        android:layout_marginTop="40dp"
         android:hint="Enter password"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20sp"
+        android:inputType="textPassword"
+        ></EditText>
+    <EditText
+        android:id="@+id/signup_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_password"
+        android:hint="Enter Address"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        ></EditText>
+    <EditText
+        android:id="@+id/signup_cardnumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_address"
+        android:hint="Enter card number"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:inputType="number"
+        ></EditText>
+    <EditText
+        android:id="@+id/signup_cardexpiredate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_cardnumber"
+        android:hint="Enter card expire date"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:inputType="datetime"
+        ></EditText>
+    <EditText
+        android:id="@+id/signup_cardcvc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_cardexpiredate"
+        android:hint="Enter cvc"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:inputType="number"
         ></EditText>
 
     <CheckBox
         android:id="@+id/signup_checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signup_password"
+        android:layout_below="@id/signup_cardcvc"
         android:text="Sign up as a cook" />
 
     <Button
@@ -84,7 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/signup_checkBox"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#F5636C"
         android:text="Sign up"
         android:textAllCaps="false"
@@ -104,5 +149,7 @@
         android:textStyle="bold"
         android:textColor="#F5B656"
         ></TextView>
+
+
 
 </RelativeLayout>

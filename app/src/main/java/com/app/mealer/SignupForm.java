@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class SignupForm extends AppCompatActivity {
     private FirebaseAuth mauth;
-    private EditText fullname,phonenumber,email,password;
+    private EditText fullname,phonenumber,email,password,address,cardnum,cardex,cardcvc;
     private CheckBox isCook;
     private Button signup_btn;
     private TextView login_text;
@@ -53,6 +53,10 @@ public class SignupForm extends AppCompatActivity {
         login_text=findViewById(R.id.login_text);
         fullname=findViewById(R.id.signup_name);
         phonenumber=findViewById(R.id.signup_phone);
+        address=findViewById(R.id.signup_address);
+        cardcvc=findViewById(R.id.signup_cardcvc);
+        cardnum=findViewById(R.id.signup_cardnumber);
+        cardex=findViewById(R.id.signup_cardexpiredate);
         isCook=findViewById(R.id.signup_checkBox);
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +88,10 @@ public class SignupForm extends AppCompatActivity {
         String pass=password.getText().toString().trim();
         String name=fullname.getText().toString().trim();
         String phone=phonenumber.getText().toString().trim();
+        String add=address.getText().toString().trim();
+        String cardno=cardnum.getText().toString().trim();
+        String cardcv=cardcvc.getText().toString().trim();
+        String exdate=cardex.getText().toString().trim();
         try {
             Integer a=Integer.parseInt(phone);
         }catch(NumberFormatException e){
@@ -97,6 +105,19 @@ public class SignupForm extends AppCompatActivity {
         }
         if(name.isEmpty()){
             fullname.setError("Full name can not be empty");
+        }
+        if(add.isEmpty()){
+            address.setError("Invalid address");
+        }
+        if(cardno.isEmpty()){
+            cardnum.setError("invalid card number");
+
+        }
+        if(cardcv.isEmpty()){
+            cardcvc.setError("invalid cvc");
+        }
+        if(exdate.isEmpty()){
+            cardex.setError("invalid expire date");
         }
 
         else{
@@ -116,6 +137,10 @@ public class SignupForm extends AppCompatActivity {
                         userInfo.put("FullName",fullname.getText().toString());
                         userInfo.put("UserEmail",email.getText().toString());
                         userInfo.put("PhoneNumber",phonenumber.getText().toString());
+                        userInfo.put("Address",address.getText().toString());
+                        userInfo.put("Card number",cardnum.getText().toString());
+                        userInfo.put("Card expire date", cardex.getText().toString());
+                        userInfo.put("Card cvc", cardcvc.getText().toString());
                         if(iscook=="1"){
                             userInfo.put("isuser",null);
                             userInfo.put("iscook","1");
