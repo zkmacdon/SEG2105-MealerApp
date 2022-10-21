@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#D8D8D8"
+    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupForm">
+    <TextView
+        android:id="@+id/signup_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Sign up "
+        android:textColor="#A13D3D"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        ></TextView>
+    <EditText
+        android:id="@+id/signup_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_text"
+        android:layout_marginTop="40dp"
+        android:hint="Enter e-mail"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        >
+    </EditText>
+    <EditText
+        android:id="@+id/signup_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_mail"
+        android:layout_marginTop="40dp"
+        android:hint="Enter password"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        ></EditText>
+    <Button
+        android:id="@+id/signup_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#F5636C"
+        android:text="Sign up"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        ></Button>
+    <TextView
+        android:id="@+id/login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_btn"
+        android:layout_centerHorizontal="true"
+        android:text="Existing User Login"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#F5B656"
+        ></TextView>
+
+</RelativeLayout>
