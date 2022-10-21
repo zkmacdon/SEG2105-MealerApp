@@ -28,34 +28,48 @@
         android:id="@+id/CompanyHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="70dp"
         android:text="The premium food services app"
         android:textColor="#A13D3D"
         android:textStyle="italic"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="198dp" />
+        app:layout_constraintBottom_toTopOf="@+id/LogInButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CompanyName" />
 
     <Button
         android:id="@+id/LogInButton"
         android:layout_width="222dp"
         android:layout_height="60dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="149dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="7dp"
         android:backgroundTint="#F5636C"
         android:text="Log in"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="366dp" />
+        app:layout_constraintBottom_toTopOf="@+id/SignUpButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CompanyHeading" />
 
     <Button
         android:id="@+id/SignUpButton"
         android:layout_width="222dp"
         android:layout_height="60dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="7dp"
         android:backgroundTint="#F5B656"
         android:text="Create a new account"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="433dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogInButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
