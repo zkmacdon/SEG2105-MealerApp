@@ -26,6 +26,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignupForm extends AppCompatActivity {
     private FirebaseAuth mauth;
@@ -81,7 +83,14 @@ public class SignupForm extends AppCompatActivity {
             }
         });
     }
+    private boolean valemail(String input){
+        String emailRegex="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+        Pattern emailPat=Pattern.compile(emailRegex,Pattern.CASE_INSENSITIVE);
+        Matcher matcher = emailPat.matcher(input);
+        return matcher.find();
 
+
+    }
     private void Register() {
         Log.d("tiendep","hello");
         String user=email.getText().toString().trim();
@@ -97,8 +106,8 @@ public class SignupForm extends AppCompatActivity {
         }catch(NumberFormatException e){
             phonenumber.setError("Invalid phone number");
         }
-        if(user.isEmpty()){
-            email.setError("Email can not be empty..");
+        if(!valemail(user)){
+            email.setError("invalid email address");
         }
         if(pass.isEmpty()){
             password.setError("Password can not be empty");
@@ -109,11 +118,11 @@ public class SignupForm extends AppCompatActivity {
         if(add.isEmpty()){
             address.setError("Invalid address");
         }
-        if(cardno.isEmpty()){
+        if(cardno.isEmpty()||cardno.length()!=16){
             cardnum.setError("invalid card number");
 
         }
-        if(cardcv.isEmpty()){
+        if(cardcv.isEmpty()|| cardcv.length()!=3){
             cardcvc.setError("invalid cvc");
         }
         if(exdate.isEmpty()){
