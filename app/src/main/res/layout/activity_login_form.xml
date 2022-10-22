@@ -17,30 +17,32 @@
         android:id="@+id/login_text"
         android:layout_marginTop="50dp"
         ></TextView>
+
     <EditText
+        android:id="@+id/login_mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/login_mail"
-        android:hint="Enter e-mail"
-        android:textColorHint="@color/black"
         android:layout_below="@id/login_text"
         android:layout_marginTop="40dp"
+        android:hint="Enter e-mail"
+        android:minHeight="48dp"
         android:padding="10dp"
-        android:textSize="20sp"
+        android:textColorHint="@color/black"
 
-        ></EditText>
+        android:textSize="20sp"></EditText>
+
     <EditText
+        android:id="@+id/login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/login_password"
-        android:hint="Enter password"
-        android:textColorHint="@color/black"
         android:layout_below="@id/login_mail"
         android:layout_marginTop="40dp"
+        android:hint="Enter password"
+        android:minHeight="48dp"
         android:padding="10dp"
-        android:textSize="20sp"
+        android:textColorHint="@color/black"
 
-        ></EditText>
+        android:textSize="20sp"></EditText>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
