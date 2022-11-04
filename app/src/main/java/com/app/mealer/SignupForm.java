@@ -92,7 +92,7 @@ public class SignupForm extends AppCompatActivity {
 
     }
     private void Register() {
-        Log.d("tiendep","hello");
+
         String user=email.getText().toString().trim();
         String pass=password.getText().toString().trim();
         String name=fullname.getText().toString().trim();
