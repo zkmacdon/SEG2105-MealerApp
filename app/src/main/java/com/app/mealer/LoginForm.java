@@ -47,9 +47,6 @@ public class LoginForm extends AppCompatActivity {
         });
 
 
-        
-        
-
     }
 
     private void login() {
@@ -98,9 +95,12 @@ public class LoginForm extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
                 Log.d("dataonsuccess",documentSnapshot.getData().toString());
-                if(documentSnapshot.getString("iscook")!=null){
-                    startActivity(new Intent(getApplicationContext(),CookWelcome.class));
-
+                if(documentSnapshot.getString("userType")=="Cook"){
+                    if (documentSnapshot.getString("isSuspended") == "1"){
+                        startActivity(new Intent(getApplicationContext(), SuspendedCook.class)); // links to suspended cook. Needs to be added in Firebase
+                    }else {
+                        startActivity(new Intent(getApplicationContext(), CookWelcome.class));
+                    }
                 }
                 else{
                     startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));

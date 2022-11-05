@@ -36,9 +36,8 @@ public class SignupForm extends AppCompatActivity {
     private Button signup_btn;
     private TextView login_text;
     private FirebaseFirestore fstore;
-
-    private String isuser;
-    private String iscook;
+    private boolean iscook; // changed to make it more applicable w/ diff user types, inclusion of admin.
+    private String userType;
 
 
 
@@ -77,7 +76,7 @@ public class SignupForm extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(isCook.isChecked()){
-                    iscook="1";
+                    iscook= true;
                 }
 
             }
@@ -150,13 +149,11 @@ public class SignupForm extends AppCompatActivity {
                         userInfo.put("Card number",cardnum.getText().toString());
                         userInfo.put("Card expire date", cardex.getText().toString());
                         userInfo.put("Card cvc", cardcvc.getText().toString());
-                        if(iscook=="1"){
-                            userInfo.put("isuser",null);
-                            userInfo.put("iscook","1");
+                        if(iscook){
+                            userInfo.put("userType","Cook");
                         }
                         else{
-                            userInfo.put("isuser","1");
-                            userInfo.put("iscook",null);
+                            userInfo.put("userType","User");
                         }
 
                         df.set(userInfo);
