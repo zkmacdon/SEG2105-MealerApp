@@ -151,6 +151,7 @@ public class SignupForm extends AppCompatActivity {
                         userInfo.put("Card cvc", cardcvc.getText().toString());
                         if(iscook){
                             userInfo.put("userType","Cook");
+                            userInfo.put("isSuspended", false);
                         }
                         else{
                             userInfo.put("userType","User");

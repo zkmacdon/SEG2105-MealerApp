@@ -102,8 +102,11 @@ public class LoginForm extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), CookWelcome.class));
                     }
                 }
-                else{
+                else if(documentSnapshot.getString("userType") == "User"){
                     startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
+                }
+                else if(documentSnapshot.getString("userType") == "Admin"){
+                    startActivity(new Intent(getApplicationContext(), Admin.class));
                 }
 
             }
