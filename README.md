@@ -9,8 +9,3 @@ Final contributing members:
 - Viet Tien Dang, Student ID - 300229069
 - Zaheer MacDonald, Student ID - 300022474
 
-
-
-Login credentials for Firebase
-- email: seg2105mealerapp@gmail.com 
-- password: uottawaseg2022
