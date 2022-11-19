@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D8D8D8"
+    tools:context=".MealsActivity">
+
+    <TextView
+        android:id="@+id/mealerwelcome3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="View your meals below"
+        android:textColor="#A13D3D"
+        android:textSize="34sp"
+        android:typeface="normal"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="75dp" />
+
+    <Button
+        android:id="@+id/mealsButton2"
+        android:layout_width="178dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#F5636C"
+        android:text="Add Meal"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="523dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="244dp"
+        android:layout_height="194dp"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="185dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

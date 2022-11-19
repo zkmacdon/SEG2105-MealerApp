@@ -45,7 +45,7 @@
 
 
     <TextView
-        android:id="@+id/welcometext"
+        android:id="@+id/mealsButton"
         android:layout_width="209dp"
         android:layout_height="35dp"
         android:text="Thanks for joining Mealer, more to come soon."
@@ -65,7 +65,7 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/welcometext"
+        android:layout_below="@+id/mealsButton"
         />
 
 </RelativeLayout>

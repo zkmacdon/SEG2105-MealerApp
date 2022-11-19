@@ -11,7 +11,7 @@
         android:id="@+id/logOutButton2"
         android:layout_width="222dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/welcometext"
+        android:layout_below="@+id/mealsButton"
         android:layout_centerHorizontal="true"
         android:backgroundTint="#F5636C"
         android:text="Log Out"

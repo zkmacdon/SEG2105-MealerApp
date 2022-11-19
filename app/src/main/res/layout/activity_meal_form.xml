@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D8D8D8"
+    tools:context=".MealFormActivity">
+
+    <Button
+        android:id="@+id/mealsButton3"
+        android:layout_width="178dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#F5636C"
+        android:text="Add Meal"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="532dp" />
+
+    <TextView
+        android:id="@+id/mealformtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Add a Meal"
+        android:textColor="#A13D3D"
+        android:textSize="34sp"
+        android:typeface="normal"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="92dp" />
+
+    <EditText
+        android:id="@+id/meal_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Meal name"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="246dp" />
+
+    <EditText
+        android:id="@+id/meal_description"
+        android:layout_width="399dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Description"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="304dp" />
+
+    <EditText
+        android:id="@+id/meal_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Price"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="371dp" />
+
+    <Switch
+        android:id="@+id/meal_offered_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Is offered?"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="457dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
