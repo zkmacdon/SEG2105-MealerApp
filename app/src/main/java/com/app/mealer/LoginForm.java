@@ -59,19 +59,7 @@ public class LoginForm extends AppCompatActivity {
             password.setError("Password can not be empty");
         }
         else{
-//            mauth.signInWithEmailAndPassword(user,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                @Override
-//                public void onComplete(@NonNull Task<AuthResult> task) {
-//                    if(task.isSuccessful()){
-//                        Toast.makeText(LoginForm.this,"Logoin Successfully", Toast.LENGTH_SHORT).show();
-//                        checkIfCook
-//                        startActivity(new Intent(LoginForm.this, WelcomeActivity.class));
-//                    }
-//                    else{
-//                        Toast.makeText(LoginForm.this,"Login Failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            });
+//
             mauth.signInWithEmailAndPassword(user,pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
@@ -95,19 +83,30 @@ public class LoginForm extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
                 Log.d("dataonsuccess",documentSnapshot.getData().toString());
-                if(documentSnapshot.getString("userType")=="Cook"){
-                    if (documentSnapshot.getString("isSuspended") == "1"){
+
+                boolean a=documentSnapshot.getString("userType").equals("Cook");
+                String b=new Boolean(a).toString();
+                Log.d("userType",b);
+                Log.d("userType",documentSnapshot.getString("userType"));
+
+
+                if(documentSnapshot.getString("userType").equals("User")){
+                    Log.d("step","....");
+                    startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
+                }
+                if(documentSnapshot.getString("userType").equals("Cook")){
+                    Log.d("step","....");
+                    if (documentSnapshot.getString("isSuspended").equals("1")){
                         startActivity(new Intent(getApplicationContext(), SuspendedCook.class)); // links to suspended cook. Needs to be added in Firebase
                     }else {
                         startActivity(new Intent(getApplicationContext(), CookWelcome.class));
                     }
                 }
-                else if(documentSnapshot.getString("userType") == "User"){
-                    startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
-                }
-                else if(documentSnapshot.getString("userType") == "Admin"){
+                 if(documentSnapshot.getString("userType").equals("Admin")){
+                     Log.d("step","....");
                     startActivity(new Intent(getApplicationContext(), Admin.class));
                 }
+
 
             }
         });

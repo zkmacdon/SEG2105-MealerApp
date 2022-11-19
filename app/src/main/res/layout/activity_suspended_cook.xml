@@ -1,35 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D8D8D8"
     tools:context=".SuspendedCook">
-
-    <Button
-        android:id="@+id/logOutButton2"
-        android:layout_width="222dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/mealsButton"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="#F5636C"
-        android:text="Log Out"
-        android:textAllCaps="false"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="413dp" />
-
-    <TextView
-        android:id="@+id/welcometext2"
-        android:layout_width="203dp"
-        android:layout_height="66dp"
-        android:layout_below="@+id/username"
-        android:layout_centerHorizontal="true"
-        android:text="Sadly, cook, you've been suspended. See below for the amount of time suspended for (-1 means indefinitely)."
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="169dp" />
 
     <TextView
         android:id="@+id/mealerwelcome2"
@@ -43,19 +19,52 @@
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="78dp" />
 
-    <EditText
-        android:id="@+id/suspendedTimeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="293dp" />
-
     <TextView
-        android:id="@+id/daysText"
+        android:id="@+id/welcometext2"
+        android:layout_width="203dp"
+        android:layout_height="66dp"
+        android:layout_below="@+id/mealerwelcome2"
+        android:layout_centerHorizontal="true"
+        android:text="Sadly, cook, you've been suspended. See below for the amount of time suspended for (-1 means indefinitely)."
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="169dp" />
+
+
+    <LinearLayout
+        android:id="@+id/dateandtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Days"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="304dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/welcometext2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/daysText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Days" />
+
+        <EditText
+            android:id="@+id/suspendedTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="000"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/logOutButton2"
+        android:layout_width="222dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/dateandtime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="103dp"
+        android:backgroundTint="#F5636C"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="413dp" />
+
+</RelativeLayout>
