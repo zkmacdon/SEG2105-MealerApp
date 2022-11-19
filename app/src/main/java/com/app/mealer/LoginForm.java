@@ -22,6 +22,14 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.Clock;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.Date;
+
 public class LoginForm extends AppCompatActivity {
     private FirebaseAuth mauth;
     private FirebaseFirestore fstore;
@@ -81,13 +89,16 @@ public class LoginForm extends AppCompatActivity {
         df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                com.google.firebase.Timestamp time= documentSnapshot.getTimestamp("datesus");
 
-                Log.d("dataonsuccess",documentSnapshot.getData().toString());
+                SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                String date=sdf.format(new Date(time.getSeconds()*1000));
+
+
+
+                Log.d("timestamp",date);
 
                 boolean a=documentSnapshot.getString("userType").equals("Cook");
-                String b=new Boolean(a).toString();
-                Log.d("userType",b);
-                Log.d("userType",documentSnapshot.getString("userType"));
 
 
                 if(documentSnapshot.getString("userType").equals("User")){
