@@ -13,4 +13,5 @@ Final contributing members:
 
 Login credentials for Firebase:
 email - seg2105mealerapp@gmail.com 
+</break>
 password - uottawaseg2022
