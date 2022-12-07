@@ -22,13 +22,19 @@
             android:textColor="#A13D3D"
             android:textSize="34sp"
             android:typeface="normal" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get complain"
+            android:id="@+id/getcomplain">
+
+        </Button>
+
 
         <ListView
             android:id="@+id/complaints_list_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@color/black"
-            android:dividerHeight="2dp" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </LinearLayout>
