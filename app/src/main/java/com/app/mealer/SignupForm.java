@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -149,9 +150,13 @@ public class SignupForm extends AppCompatActivity {
                         userInfo.put("Card number",cardnum.getText().toString());
                         userInfo.put("Card expire date", cardex.getText().toString());
                         userInfo.put("Card cvc", cardcvc.getText().toString());
+                        userInfo.put("password", password.getText().toString());
                         if(iscook){
                             userInfo.put("userType","Cook");
                             userInfo.put("isSuspended", false);
+                        }
+                        else if (fullname.getText().toString().equals("Admin")){
+                            userInfo.put("userType", "Admin");
                         }
                         else{
                             userInfo.put("userType","User");

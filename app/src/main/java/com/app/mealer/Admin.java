@@ -25,13 +25,16 @@ import android.os.Bundle;
 public class Admin extends AppCompatActivity {
     private FirebaseAuth mauth;
     private Button logout_btn, complaint_btn;
+    private String userName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
         logout_btn = findViewById(R.id.logOutButton);
         complaint_btn = findViewById(R.id.complaintButton);
-
+        Bundle extras = getIntent().getExtras();
+        userName = extras.getString("user");
         logout_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){logout();}

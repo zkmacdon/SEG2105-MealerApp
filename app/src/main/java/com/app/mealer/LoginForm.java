@@ -63,14 +63,14 @@ public class LoginForm extends AppCompatActivity {
             mauth.signInWithEmailAndPassword(user,pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
-                    Toast.makeText(LoginForm.this,"Logoin Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginForm.this,"Login Successful", Toast.LENGTH_SHORT).show();
                     checkuseraccesslevel(authResult.getUser().getUid());
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(LoginForm.this,"Logoin Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginForm.this,"Login Failed", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -92,19 +92,30 @@ public class LoginForm extends AppCompatActivity {
 
                 if(documentSnapshot.getString("userType").equals("User")){
                     Log.d("step","....");
-                    startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
+                    Intent i = new Intent(getApplicationContext(), WelcomeActivity.class);
+                    i.putExtra("user", documentSnapshot.getString("FullName"));
+                    startActivity(i);
+                    //startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
                 }
                 if(documentSnapshot.getString("userType").equals("Cook")){
                     Log.d("step","....");
                     if (documentSnapshot.getString("isSuspended").equals("1")){
-                        startActivity(new Intent(getApplicationContext(), SuspendedCook.class)); // links to suspended cook. Needs to be added in Firebase
+                        Intent i = new Intent(getApplicationContext(), SuspendedCook.class);
+                        i.putExtra("user", documentSnapshot.getString("FullName"));
+                        startActivity(i);
+                        //startActivity(new Intent(getApplicationContext(), SuspendedCook.class)); // links to suspended cook. Needs to be added in Firebase
                     }else {
-                        startActivity(new Intent(getApplicationContext(), CookWelcome.class));
+                        Intent i = new Intent(getApplicationContext(), CookWelcome.class);
+                        i.putExtra("user", documentSnapshot.getString("FullName"));
+                        startActivity(i);
+                        //startActivity(new Intent(getApplicationContext(), CookWelcome.class));
                     }
                 }
                  if(documentSnapshot.getString("userType").equals("Admin")){
                      Log.d("step","....");
-                    startActivity(new Intent(getApplicationContext(), Admin.class));
+                     Intent i = new Intent(getApplicationContext(), Admin.class);
+                     i.putExtra("user", documentSnapshot.getString("FullName"));
+                     startActivity(i);
                 }
 
 

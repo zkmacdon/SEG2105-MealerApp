@@ -13,11 +13,16 @@ public class CookWelcome extends AppCompatActivity {
     //private FirebaseAuth mauth;
     private Button logout_btn;
     private Button meals_btn;
+    private String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_welcome);
         logout_btn=findViewById(R.id.logOutButton);
+        Bundle extras = getIntent().getExtras();
+        userName = extras.getString("user");
+
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
