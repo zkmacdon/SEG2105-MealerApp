@@ -47,10 +47,10 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void Search(String searchContent){
-        String s = searchContent.strip();
+        //String s = searchContent.strip();
         Intent i = new Intent();
-        i.putExtra("searchTerm", s);
-        startActivity(i, SearchListActivity.class);
+        //i.putExtra("searchTerm", s);
+        //startActivity(i, SearchListActivity.class);
     }
 
 }
