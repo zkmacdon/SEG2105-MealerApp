@@ -40,7 +40,10 @@ public class MealsActivity extends AppCompatActivity {
         meal_adder_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MealsActivity.this, MealFormActivity.class));
+                Intent i = new Intent(getApplicationContext(), MealFormActivity.class);
+                i.putExtra("user", userName);
+                startActivity(i);
+//                startActivity(new Intent(MealsActivity.this, MealFormActivity.class));
             }
         });
         mealListView=findViewById(R.id.listofmeal);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,15 +11,16 @@
         android:id="@+id/mealsButton3"
         android:layout_width="178dp"
         android:layout_height="54dp"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/meal_offered_switch"
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         android:backgroundTint="#F5636C"
         android:text="Add Meal"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="532dp" />
+
+/>
 
     <TextView
         android:id="@+id/mealformtitle"
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Add a Meal"
+        android:layout_marginTop="40dp"
         android:textColor="#A13D3D"
         android:textSize="34sp"
         android:typeface="normal"
@@ -39,6 +41,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/mealformtitle"
         android:text="Meal name"
         tools:layout_editor_absoluteX="7dp"
         tools:layout_editor_absoluteY="246dp" />
@@ -50,6 +54,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:hint="Description"
+        android:layout_below="@+id/meal_name"
         android:inputType="textMultiLine"
         tools:layout_editor_absoluteX="7dp"
         tools:layout_editor_absoluteY="304dp" />
@@ -60,6 +65,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Price"
+        android:layout_below="@+id/meal_description"
         android:inputType="numberDecimal"
         tools:layout_editor_absoluteX="7dp"
         tools:layout_editor_absoluteY="371dp" />
@@ -69,7 +75,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Is offered?"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="457dp" />
+        android:layout_below="@+id/meal_price"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+ />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
