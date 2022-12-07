@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -13,6 +14,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class WelcomeActivity extends AppCompatActivity {
     private FirebaseAuth mauth;
     private Button logout_btn;
+    private Button msgs_btn;
+    private Button search_btn;
+    private EditText search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,15 @@ public class WelcomeActivity extends AppCompatActivity {
                 logout();
             }
         });
+        search = findViewById(R.id.search_text);
+        msgs_btn = findViewById(R.id.messagesButton);
+        search_btn = findViewById(R.id.searchButton);
+        search_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Search(search.toString());
+            }
+        });
     }
 
 
@@ -32,4 +45,12 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(new Intent(WelcomeActivity.this,LoginForm.class));
         finish();
     }
+
+    private void Search(String searchContent){
+        String s = searchContent.strip();
+        Intent i = new Intent();
+        i.putExtra("searchTerm", s);
+        startActivity(i, SearchListActivity.class);
+    }
+
 }
