@@ -4,12 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class CookWelcome extends AppCompatActivity {
+public class
+
+
+
+
+CookWelcome extends AppCompatActivity {
     //private FirebaseAuth mauth;
     private Button logout_btn;
     private Button meals_btn;
@@ -30,10 +36,13 @@ public class CookWelcome extends AppCompatActivity {
             }
         });
         meals_btn = findViewById(R.id.mealsButton);
-        logout_btn.setOnClickListener(new View.OnClickListener(){
+        meals_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                startActivity(new Intent(CookWelcome.this,MealsActivity.class));
+                Intent i = new Intent(getApplicationContext(), MealsActivity.class);
+                i.putExtra("user", userName);
+                startActivity(i);
+//                startActivity(new Intent(CookWelcome.this,MealsActivity.class));
             }
           }
         );

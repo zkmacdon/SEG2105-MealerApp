@@ -62,6 +62,7 @@ public class ComplaintsList extends AppCompatActivity {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         if(!queryDocumentSnapshots.isEmpty()){
+                            complaintsList.clear();
                             List<DocumentSnapshot> lst = queryDocumentSnapshots.getDocuments();
                             for (DocumentSnapshot d : lst) {
                                 String a=d.get("cookName").toString();
@@ -70,10 +71,6 @@ public class ComplaintsList extends AppCompatActivity {
 //                                Complaint c = d.toObject(Complaint.class);
                                 Complaint c=new Complaint(a,b);
                                 complaintsList.add(c);
-
-
-
-
                             }
                             ComplaintAdapter adapter = new ComplaintAdapter(ComplaintsList.this, complaintsList );
                             complaintsListView.setAdapter(adapter);
