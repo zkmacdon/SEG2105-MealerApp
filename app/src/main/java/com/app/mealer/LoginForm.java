@@ -89,16 +89,16 @@ public class LoginForm extends AppCompatActivity {
         df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                com.google.firebase.Timestamp time= documentSnapshot.getTimestamp("datesus");
+//                com.google.firebase.Timestamp time= documentSnapshot.getTimestamp("datesus");
 
-                SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-                String date=sdf.format(new Date(time.getSeconds()*1000));
+//                SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+//                String date=sdf.format(new Date(time.getSeconds()*1000));
 
 
 
-                Log.d("timestamp",date);
 
-                boolean a=documentSnapshot.getString("userType").equals("Cook");
+
+//                boolean a=documentSnapshot.getString("userType").equals("Cook");
 
 
                 if(documentSnapshot.getString("userType").equals("User")){
