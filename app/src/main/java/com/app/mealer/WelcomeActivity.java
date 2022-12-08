@@ -34,7 +34,7 @@ public class WelcomeActivity extends AppCompatActivity {
         search_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Search(search.toString());
+                Search(search.getText().toString());
             }
         });
     }
@@ -47,10 +47,10 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void Search(String searchContent){
-        //String s = searchContent.strip();
-        Intent i = new Intent();
-        //i.putExtra("searchTerm", s);
-        //startActivity(i, SearchListActivity.class);
+
+        Intent i = new Intent(getApplicationContext(), SearchListActivity.class);
+        i.putExtra("searchcontent", searchContent);
+        startActivity(i);
     }
 
 }

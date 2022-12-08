@@ -1,19 +1,19 @@
 package com.app.mealer;
 
-public class MealData {
+public class Searchresult {
     private String MealName;
     private double Price;
     private String CookID;
     private String MealDescription;
     private boolean IsOffered;
-    public MealData(){}
-    public MealData(String cookID,String mealname,double price, boolean isOffered, String mealDescription){
+
+    public Searchresult(){}
+    public Searchresult(String cookID,String mealname,double price, boolean isOffered, String mealDescription){
         MealName=mealname;
         Price=price;
         IsOffered=isOffered;
         MealDescription=mealDescription;
         CookID=cookID;
-
     }
     public String getCookId(){return CookID;}
     public void setCookId(String id){CookID=id;}
@@ -26,5 +26,4 @@ public class MealData {
     public void setAvailable(boolean a){IsOffered=a;}
     public double getPrice(){return Price;}
     public void setPrice(double pr){Price=pr;};
-
 }
