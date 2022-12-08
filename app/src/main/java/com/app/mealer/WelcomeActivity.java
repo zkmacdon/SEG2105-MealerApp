@@ -17,10 +17,13 @@ public class WelcomeActivity extends AppCompatActivity {
     private Button msgs_btn;
     private Button search_btn;
     private EditText search;
+    private String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        Bundle extras = getIntent().getExtras();
+        userName = extras.getString("user");
         logout_btn=findViewById(R.id.logOutButton);
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +53,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         Intent i = new Intent(getApplicationContext(), SearchListActivity.class);
         i.putExtra("searchcontent", searchContent);
+        i.putExtra("user",userName);
         startActivity(i);
     }
 

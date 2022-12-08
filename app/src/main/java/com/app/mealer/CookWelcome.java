@@ -42,7 +42,7 @@ CookWelcome extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), MealsActivity.class);
                 i.putExtra("user", userName);
                 startActivity(i);
-//                startActivity(new Intent(CookWelcome.this,MealsActivity.class));
+
             }
           }
         );

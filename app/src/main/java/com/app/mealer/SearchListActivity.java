@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ public class SearchListActivity extends AppCompatActivity {
     private ListView searchListView;
     private ArrayList<Searchresult> searchList;
     private String searchcontent;
+    private String userName;
+    private Button purchase_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +33,10 @@ public class SearchListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_list);
         Bundle extras = getIntent().getExtras();
         searchcontent = extras.getString("searchcontent");
-        Log.d("hey",searchcontent);
+        userName=extras.getString("user");
+        Log.d("hey",userName);
         searchListView=findViewById(R.id.searchlist);
+
         fstore=FirebaseFirestore.getInstance();
         searchList=new ArrayList<>();
         onGetSearches();
@@ -49,7 +54,8 @@ public class SearchListActivity extends AppCompatActivity {
                         String mname=d.get("MealName").toString();
                         double mprice=Double.parseDouble(d.get("price").toString());
                         boolean mavailable= Boolean.parseBoolean(d.get("isOffered").toString());
-                        Searchresult m=new Searchresult(cookid,mname,mprice,mavailable,mdes);
+                        int rating= Integer.parseInt(d.get("Rating").toString());
+                        Searchresult m=new Searchresult(cookid,mname,mprice,mavailable,mdes,rating);
                         if(cookid.contains(searchcontent)||mdes.contains(searchcontent)||mname.contains(searchcontent)&&mavailable)
                         {searchList.add(m);}
                     }

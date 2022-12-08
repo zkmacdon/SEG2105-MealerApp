@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,13 +30,21 @@ public class SearchAdapter extends ArrayAdapter<Searchresult> {
         TextView mealName = itemListView.findViewById(R.id.meal_name);
         TextView mealDescription = itemListView.findViewById(R.id.meal_description);
         TextView mealPrice= itemListView.findViewById(R.id.meal_price);
+        TextView rating=itemListView.findViewById(R.id.rating);
+
+
 
 
         cookName.setText(searchresult.getCookId());
         mealName.setText(searchresult.getMealName());
         mealDescription.setText(searchresult.getMealDescription());
         mealPrice.setText(Double.toString(searchresult.getPrice()));
+        String rate="Rating: "+Integer.toString(searchresult.getRating())+"/10";
+        rating.setText(rate);
 
         return itemListView;}
+
+
+
 
 }

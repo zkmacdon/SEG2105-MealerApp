@@ -6,6 +6,7 @@ public class MealData {
     private String CookID;
     private String MealDescription;
     private boolean IsOffered;
+
     public MealData(){}
     public MealData(String cookID,String mealname,double price, boolean isOffered, String mealDescription){
         MealName=mealname;
