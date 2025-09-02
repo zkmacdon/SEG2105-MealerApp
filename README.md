@@ -1,11 +1,7 @@
 # SEG2105-MealerApp
 
 
-Repository for the SEG 2105 group project.
+This is the repository group project created for SEG 2105 - Introduction to Software Engineering at uOttawa, taken in Fall of 2022.
 
-Link to repository is as follows: https://github.com/zkmdn/SEG2105-MealerApp
-
-Final contributing members:
-- Viet Tien Dang, Student ID - 300229069
-- Zaheer MacDonald, Student ID - 300022474
-
+We created a food-ordering app in Java similar to Skip The Dishes or Uber Eats, in which users could create accounts and order food from
+restaurants, while restaurant owners could sell their food and track orders.
